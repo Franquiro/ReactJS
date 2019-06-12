@@ -1,3 +1,20 @@
+class Boton extends React.Component{
+  render(){
+    return <button id={this.props.id} className="btn btn-primary">{this.props.nombre}</button>;
+  }
+}
+
+class Botonera extends React.Component{
+  render(){
+    return(
+      <div>
+        <Boton id="contar" nombre="Contar" />
+        <Boton id="mostrarPares" nombre="Pares"/>
+      </div>
+    );
+  }
+}
+ReactDOM.render(<Botonera />, document.getElementById("botones"));
 /*const usuario = {};
       usuario.nombre = prompt("Ingrese su nombre");
       usuario.apellido = prompt("Ingrese su apellido");
@@ -77,7 +94,7 @@
       ReactDOM.render(ul, document.getElementById("root"));*/
 
 //EJERCICIO 3 CLASE 1 REACT
-/*
+
 let N;
 document.querySelector("#contar").addEventListener("click", () => {
   N = parseInt(prompt("Ingrese número"));
@@ -96,7 +113,7 @@ setInterval(() => {
       );
   }
 }, 1000);
-*/
+
 
 ////////////         CLASE 2
 /*function Avatar (props) {
@@ -156,7 +173,7 @@ ReactDOM.render(<App />, document.getElementById("root"));
 
 //EJERCICIO 2 CLASE 2
 // adaptar el código anterior para utilizar un objeto Date
-const fecha_de_nacimiento = new Date(1990, 9, 21);
+const fecha_de_nacimiento = new Date();
 function Fecha(props) {
   return (
     <span className="fecha">
@@ -174,3 +191,23 @@ function App() {
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
+
+////// funcion Pares
+let Np;
+document.querySelector("#mostrarPares").addEventListener("click",function(){
+  Np = parseInt(prompt("Ingrese cantidad de pares"));
+  let par=2;
+  let textoPar = String(par);
+  setInterval(function(){
+    if(Np<=1){
+      ReactDOM.render(<h1>{textoPar+"-FIN"}</h1>,document.getElementById("root"));
+    }
+    else{
+      ReactDOM.render(<h1>{textoPar}</h1>,document.getElementById("root"));
+      par += 2;
+      textoPar+="-"+par;
+      Np--;
+    }
+  },1000);
+}
+);
