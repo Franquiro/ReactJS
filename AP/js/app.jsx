@@ -77,6 +77,7 @@
       ReactDOM.render(ul, document.getElementById("root"));*/
 
 //EJERCICIO 3 CLASE 1 REACT
+/*
 let N;
 document.querySelector("#contar").addEventListener("click", () => {
   N = parseInt(prompt("Ingrese número"));
@@ -88,6 +89,88 @@ setInterval(() => {
   if (!isNaN(N)) {
     N--;
     if (N <= 0) ReactDOM.render(<h1>FIN</h1>, document.getElementById("root"));
-    else ReactDOM.render(<h1>{N}</h1>, document.getElementById("root"));
+    else
+      ReactDOM.render(
+        <h1 className="azul">{N}</h1>,
+        document.getElementById("root")
+      );
   }
 }, 1000);
+*/
+
+////////////         CLASE 2
+/*function Avatar (props) {
+  return (
+    <img className="avatar"
+      src={props.usuario.urlAvatar}
+      alt={props.usuario.nombre}
+    />
+  );
+ }
+
+ function InfoUsuario (props) {
+  return (
+    <div className="info-usuario">
+      <Avatar usuario={props.usuario} />
+      <div className="info-usuario-nombre">
+        {props.usuario.nombre}
+      </div>
+    </div>
+  );
+ }
+
+
+ function Comentario (props) {
+  return (
+    <div className="comentario">
+      <InfoUsuario usuario={props.autor} />
+      <div className="texto-comentario">
+        {props.texto}
+      </div>
+      <div className="fecha-comentario">
+        {formatDate(props.fecha)}
+      </div>
+    </div>
+  );
+ }*/
+
+/*
+ //EJERCICIO 1 CLASE 2
+function Fecha(props) {
+  return (
+    <span className="fecha">
+      {props.dia}/{props.mes}/{props.anio}
+    </span>
+  );
+}
+function App() {
+  return (
+    <div>
+      <Fecha dia="21" mes="Octubre" anio="1990" />
+    </div>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
+*/
+
+//EJERCICIO 2 CLASE 2
+// adaptar el código anterior para utilizar un objeto Date
+const fecha_de_nacimiento = new Date(1990, 9, 21);
+function Fecha(props) {
+  return (
+    <span className="fecha">
+      {props.fecha.getDate()}/{props.fecha.getMonth() + 1}/
+      {props.fecha.getYear()}
+    </span>
+  );
+}
+function App() {
+  return (
+    <div>
+      <Fecha fecha={fecha_de_nacimiento} />
+    </div>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
